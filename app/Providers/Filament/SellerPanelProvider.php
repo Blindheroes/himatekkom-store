@@ -26,7 +26,7 @@ class SellerPanelProvider extends PanelProvider
             ->id('seller')
             ->path('seller')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Green,
             ])
             ->discoverResources(in: app_path('Filament/Seller/Resources'), for: 'App\\Filament\\Seller\\Resources')
             ->discoverPages(in: app_path('Filament/Seller/Pages'), for: 'App\\Filament\\Seller\\Pages')
