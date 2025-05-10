@@ -51,6 +51,8 @@ class SellerPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->passwordReset()
+            ->profile();
     }
 }
