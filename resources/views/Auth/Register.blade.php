@@ -63,7 +63,7 @@
         <!-- Login & Disclaimer -->
         <p class="mt-6 text-center text-sm text-gray-600">
             Sudah punya akun?
-            <a href="{{ route('login.index') }}" class="font-medium text-yellow-500">Masuk sekarang</a>
+            <a href="{{ route('login') }}" class="font-medium text-yellow-500">Masuk sekarang</a>
         </p>
         <p class="mt-2 text-center text-xs text-gray-400">
             Platform Seller hanya dapat digunakan oleh Mahasiswa Teknik Komputer ITS

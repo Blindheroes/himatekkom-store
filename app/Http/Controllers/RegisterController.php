@@ -46,18 +46,12 @@ class RegisterController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-
         $isFirstUser = User::count() === 0;
-        if ($isFirstUser) {
-            $request->merge(['is_admin' => true]);
-        }
-        $request->merge(['is_admin' => false]);
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'is_admin' => $request->is_admin,
+            'is_admin' => $isFirstUser,
         ]);
 
         Auth::login($user);
