@@ -17,17 +17,21 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('profile_picture')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
+
+            // google
+            $table->string('google_id')->nullable();
+            $table->string('avatar')->nullable();
 
             $table->rememberToken();
             $table->timestamps();
 
             // member_id
             $table->string('member_id')->nullable();
+            $table->string('member_id_path')->nullable();
             $table->boolean('member_id_approved')->default(false);
-            $table->boolean('member_id_status')->default(false);
+            $table->boolean('member_status')->default(false);
             $table->boolean('is_admin')->default(false);
         });
 

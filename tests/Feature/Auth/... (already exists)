@@ -1,0 +1,7 @@
+class MyFirstTest extends TestCase
+{
+    public function test_example()
+    {
+        $this->assertTrue(true);
+    }
+}
