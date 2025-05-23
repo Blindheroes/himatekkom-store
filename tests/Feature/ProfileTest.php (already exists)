@@ -1,0 +1,20 @@
+<?php
+
+it('can create a new profile', function () {
+    $profileData = [
+        'name' => 'John Doe',
+        'email' => 'john@example.com',
+    ];
+
+    $response = $this->post('/profiles', $profileData);
+
+    $response->assertStatus(201);
+    $this->assertDatabaseHas('profiles', $profileData);
+});
+
+it('requires a name for the profile', function () {
+    $response = $this->post('/profiles', ['email' => 'john@example.com']);
+
+    $response->assertStatus(422);
+    $response->assertJsonValidationErrors('name');
+});
