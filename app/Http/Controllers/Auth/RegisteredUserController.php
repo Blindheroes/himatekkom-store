@@ -27,7 +27,7 @@ class RegisteredUserController extends Controller
         if (!Session::has('register') && !Session::has('register-google')) {
             return redirect(route('register'));
         }
-        
+
         return view('auth.register_step_2');
     }
 
@@ -67,6 +67,8 @@ class RegisteredUserController extends Controller
             return redirect(route('register'));
         }
 
+        $isFirstUser = User::count() === 0;
+
         $userData = [
             'name' => Session::has('register-google') ? Session::get('register-google')['name'] : $request->name,
             'email' => Session::has('register-google') ? Session::get('register-google')['email'] : Session::get('register')['email'],
@@ -74,8 +76,8 @@ class RegisteredUserController extends Controller
             'phone' => $request->phone,
             'member_id' => $request->member_id,
             'member_id_path' => $request->file('member_id_image')->store('member_id_images', 'public'),
-            'is_admin' => false,
-            'member_id_approved' => false,
+            'is_admin' => $isFirstUser ? true : false,
+            'member_id_approved' => $isFirstUser ? true : false,
             'member_status' => true,
         ];
 
