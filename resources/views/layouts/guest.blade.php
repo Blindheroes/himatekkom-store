@@ -29,12 +29,12 @@
 
     <!-- Right Side - Background Image -->
     <div class="hidden lg:block relative w-0 flex-1">
-        <div class="absolute inset-0 h-full w-full flex items-center justify-center">
+        <div class="absolute inset-0 h-full w-full flex items-center justify-center overflow-hidden">
             <!-- Gradient Layer -->
             <div class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-yellow-100"></div>
 
             <!-- Image Layer -->
-            <div class="absolute inset-0 bg-[url('{{ asset('auth/decoration-bgs.png') }}')] bg-cover bg-center bg-no-repeat"></div>
+            <img src="{{asset('storage/auth/decoration-bgs.png')}}" alt="gambar bg" class="absolute inset-0 bg-cover bg-center bg-no-repeat max-h-screen">
 
             <!-- Optional semi-transparent overlay -->
             <div class="absolute inset-0 bg-yellow-50 bg-opacity-20"></div>

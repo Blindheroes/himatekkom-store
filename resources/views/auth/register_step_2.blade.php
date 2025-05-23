@@ -42,10 +42,4 @@
         </div>
     </form>
 
-    <!-- show session (register) -->
-    @if (session('register'))
-    <div class="mt-4">
-        <x-input-error :messages="session('register')" class="mt-2" />
-    </div>
-    @endif
 </x-guest-layout>

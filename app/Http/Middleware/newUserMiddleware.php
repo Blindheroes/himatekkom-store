@@ -17,16 +17,10 @@ class newUserMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
-        // Check if the user is authenticated
         if ($request->user()) {
-            // Check if the user is new
-            $newUser = $request->user()->isNewUser();
-            if ($newUser) {
-                // Redirect to the new user page
-                // return redirect()->route('processing.registration');
-
-                // abord the request
-                return response()->json(['message' => 'You are a new user.'], 403);
+            $memberAprroved = $request->user()->member_id_approved;
+            if (!$memberAprroved) {
+                return redirect()->route('processing.registration');
             }
         }
         return $next($request);
