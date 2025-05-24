@@ -12,7 +12,7 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Full Name')" />
+            <x-input-label for="name" :value="__('Nama Lengkap')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="session('register-google.name') ?? old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
@@ -26,17 +26,12 @@
 
         <!-- Member ID -->
         <div class="mt-4">
-            <x-input-label for="member_id" :value="__('Member ID')" />
+            <x-input-label for="member_id" :value="__('Nomor NRP')" />
             <x-text-input id="member_id" class="block mt-1 w-full" type="text" name="member_id" :value="old('member_id')" required />
             <x-input-error :messages="$errors->get('member_id')" class="mt-2" />
         </div>
 
-        <!-- Member ID Image -->
-        <!-- <div class="mt-4">
-            <x-input-label for="member_id_image" :value="__('Member ID Image')" />
-            <input id="member_id_image" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" type="file" name="member_id_image" required />
-            <x-input-error :messages="$errors->get('member_id_image')" class="mt-2" />
-        </div> -->
+
 
         <!-- File Upload Area -->
         <div class="upload-area border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-gray-400 transition-colors cursor-pointer mt-4" onclick="document.getElementById('member_id_image').click();" id="upload-area">
@@ -84,15 +79,31 @@
 
 
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div class="flex items-center justify-center mt-4 w-full">
+            <div class="flex w-full gap-3 ">
+                <x-secondary-button class="w-1/5 text-center justify-center py-3">
+                    <a href="{{route('register')}}" class="flex justify-center w-full">
+                        Kembali
+                    </a>
+                </x-secondary-button>
+                <x-primary-button class="w-4/5 text-center justify-center py-3">
+                    {{ __('Daftar') }}
+                </x-primary-button>
+            </div>
         </div>
     </form>
+    <!-- Step indicator -->
+    <div class="text-center text-sm text-gray-500 mt-3">
+        Langkah 1 dari 2
+    </div>
+    <div class="text-center mt-6">
+        <p class="text-sm text-gray-600">
+            Sudah punya akun? <a href="{{ route('login') }}" class="text-orange-500 hover:text-orange-600 font-medium">Masuk sekarang</a>
+        </p>
+    </div>
+
+    <p class="text-xs text-gray-400 mt-2">
+        Platform Seller hanya dapat digunakan oleh Mahasiswa Teknik Komputer ITS
+    </p>
 
 </x-guest-layout>
