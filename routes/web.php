@@ -14,7 +14,7 @@ Route::get('/dashboard', function () {
 
     $user = User::find(Auth::user()->id);
     if ($user->isAdmin()) {
-        return redirect()->route('filament.admin.pages.dashboard');
+        return redirect()->route('filament.admin.home');
     }
     return redirect()->route('filament.seller.pages.dashboard');
 })->middleware(['auth', 'newUser'])->name('dashboard');
